@@ -47,8 +47,13 @@ module.exports = (env) => {
   favicon: '.public/faviconNamexd.notengo',*/,
       }),
       new Dotenv({
-        path: `./.env`
+        path: `./.env${env.file ?`.${env.file}`: ''}`
       })
-    ]
+    ],
+    devServer: {
+      port: 3000,
+      open: true,
+      historyApiFallback: true,
+    },
   };
 };
